@@ -1,0 +1,74 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('icomoon.woff?uvfpeo') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-minus:before {
+  content: "\e906";
+  font-size: 1.5px;
+}
+.icon-plus:before {
+  content: "\e907";
+  font-size: 8px;
+}
+.icon-arrow:before {
+  content: "\e905";
+  font-size: 8px;
+}
+.icon-financing:before {
+  content: "\e901";
+}
+.icon-brand:before {
+  content: "\e902";
+}
+.icon-network:before {
+  content: "\e903";
+}
+.icon-trusted:before {
+  content: "\e904";
+}
+.icon-snapchat:before {
+  content: "\e900";
+}
+.icon-facebook:before {
+  content: "\ea90";
+}
+.icon-instagram:before {
+  content: "\ea92";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
