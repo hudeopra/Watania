@@ -178,15 +178,7 @@ a:hover {
         }
     }
 }
-.nice-select{
-    color:$gray-dark;
-    &:after{
-        border-color:$gray-dark;
-    }
-    .current{
-        font-weight: bold;
-    }
-}
+
 .section-title{
     margin-bottom: 50px;
 }
@@ -198,6 +190,7 @@ a:hover {
     border-radius: 100px;
     position: absolute;
     z-index: 3;
+    overflow: hidden;
 }
 .main-logo{
     width: 225px;
@@ -261,21 +254,23 @@ a:hover {
     }
 }
 .main-menu{
+    .btn__header{
+        display: none;
+    }
     .plus-minus{
         display: none !important;
     }
     li{
-        font-size: 16px;
+        font-size: 18px;
         position: relative;
-        padding: 20px 15px;
+        padding: 0 15px;
         .sub_toggle {
             width: 4px;
             display: inline-block;
             .icon:before{
                 position: absolute;
-                font-size: 8px;
                 top: 50%;
-                right: -6px;
+                right: 4px;
                 transform: translateY(-50%);
             }
         }
@@ -298,7 +293,7 @@ a:hover {
         opacity: 0;
         visibility: hidden;
         position: absolute;
-        top: 60px;
+        top: 58px;
         left: 0;
         z-index: 1;
         background: $white;
@@ -313,21 +308,6 @@ a:hover {
     }
     li.current-menu-item > a:hover{
         color: #2AAEF8;
-    }
-    .menu-item-has-children{
-        margin-right: 15px;
-        &:before{
-            content: "\e905";
-            font-family: icomoon;
-            position: absolute;
-            font-size: 8px;
-            top: 50%;
-            right: -9px;
-            transform: translateY(-50%);
-        }
-        .sub_toggle{
-            display: none;
-        }
     }
 }
 .billboard{
@@ -435,7 +415,6 @@ a:hover {
 }
 .get-car{
     margin: 0 15px;
-    overflow: hidden;
     h3{
         color: $color-primary;
     }
@@ -447,7 +426,6 @@ a:hover {
         color: #fff;
         background-color: $color-primary;
         height: 100%;
-        min-height:450px;
         input,select{
             width: 90%;
             margin-bottom: 20px;
@@ -477,10 +455,10 @@ a:hover {
         height: 50px;
         width: 100%;
         border-radius: 100px;
+        margin-bottom: 30px;
         .list{
             width: 100%;
             margin-top: 0;
-            position: absolute;
         }
         .current{
             display: flex;
@@ -494,9 +472,6 @@ a:hover {
             }
         }
     }
-    .nice-select, input{
-        margin-bottom: 30px;
-    }
 }
 .tabbed-content {
     max-width: 450px;
@@ -504,42 +479,19 @@ a:hover {
     .tabs {
         display: none;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: #fff;
         border-radius:100px;
         margin-bottom: 30px;
-        
-        ul{
-            overflow: hidden;
-            border-radius:100px;
-            position: relative;
-            &:before{
-                content: '';
-                height: 100%;
-                width: 50%;
-                background-color: $color-secondary;
-                display: block;
-                border-radius:100px;
-                position: absolute;
-                left: -0%;
-                transition: all .5s;
-
-            }
-        }
-        li{width: 50%;
-        }
         a{
-            display: block;
+            display: inline-block;
             padding: 11px 20px;
-            font-size: 16px;
             border-radius:100px;
-            position: relative;
-            color: #fff;
-            text-align: center;
-            
+            font-size: 18px;
         }
-    }
-    .tabs[data-tab="tab2"] {
-        ul:before{left:50%}
+        a.active{
+            background-color: $color-secondary;
+            color: #fff;
+        }
     }
     input, select{
         width: 100%;
@@ -548,13 +500,16 @@ a:hover {
         font-size: 0;
         display: none;
     }
-    
     .item {
-        color:#fff;
         position: relative;
+        max-height: 0;
+        div{max-height: 1px;margin-bottom: 0;}
         &::before {
-            // content: attr(data-title); // Instead of polluting the HTML with a duplicate set of tabs, we get the accordion using the data-title attribute.
-            //
+            content: attr(data-title); // Instead of polluting the HTML with a duplicate set of tabs, we get the accordion using the data-title attribute.
+            background-color: #337ebd;
+            display: block;
+            padding: 15px 20px;
+            margin-bottom: 30px;
         }
         &:after{
             content:'\e907';
@@ -566,11 +521,11 @@ a:hover {
             opacity: 1;
         }
         .item-content { // We hide the inactive content with zero opacity instead of "display:none" because this allows us to apply transition effects if we want. 
-            // opacity: 0;
-            // visibility: hidden;
-            // max-height: 1px;
-            // transition: all .5s;
-            display: none;
+            opacity: 0;
+            visibility: hidden;
+            max-height: 1px;
+            overflow: hidden;
+            transition: all .5s;
         }
         &.active {
             div{
@@ -580,9 +535,9 @@ a:hover {
                 margin-bottom: 30px;
             }
             .item-content {
-                // opacity: 1;
-                // visibility: visible;
-                // max-height: 1000px;
+                opacity: 1;
+                visibility: visible;
+                max-height: 1000px;
             }
             &:before{
                 background-color: $color-secondary;
@@ -592,10 +547,6 @@ a:hover {
                 font-size: 2px;
                 top: 25px;
             }
-        }
-        h4{
-            margin-bottom: 0;
-            display: none;
         }
     }
    
@@ -622,7 +573,7 @@ a:hover {
     }
 }
 .suggested-car{
-    .product__item{
+    &__item{
         text-align: center;
         margin-bottom: 30px;
         img{
@@ -743,7 +694,7 @@ a:hover {
     }
     .main-menu li {
       font-size: 16px;
-      padding: 15px 10px;
+      padding: 0 10px;
       .sub_toggle .icon-arrow:before{
           right: 2px;
           font-size: 6px;
@@ -754,7 +705,7 @@ a:hover {
       font-size: 16px;
     }
   }
-@media screen and (max-width: 1470px) {
+@media screen and (max-width: 1450px) {
 h1{
     font-size: 50px;
 }
@@ -773,21 +724,12 @@ h2{
     font-size: 14px;
     padding: 0 6px;
 }
-.main-menu .sub-menu{
-    top:30px;
-    li{
-        padding:10px 0;
-    }
-}
 .btn__header{
     padding: 3px 10px;
     font-size: 14px;
 }
 }
 @media screen and (max-width:1200px){
-    .tabbed-content .tabs a{
-        font-size: 16px;
-    }
     .footer-quicklink{
         margin-top: 0;
         margin-bottom: 30px;
@@ -804,6 +746,9 @@ h2{
         width: calc(100% - 30px);
         border-radius: 100px;
     }
+    .header_fixed.header-wrapper.active{
+        border-radius: 0;
+    }
     .header-wrapper.active{
         border-radius: 25px 25px 0 0;
         overflow: unset;
@@ -815,55 +760,28 @@ h2{
         display: none;
     }
     .main-menu{
-        display:none;
+        flex-wrap: wrap;
+        position: absolute;
+        right: -200vw;
+        top: 66px;
+        transform: translateX(-50%);
+        background-color: #fff;
+        padding:50px 30px;
+        transition: all .5s;
+        width: calc(100vw - 30px);
         li{
             width: 100%;
             margin-bottom: 20px;
             font-size: 18px;
-            &:last-of-type{
-                margin-bottom: 0;
-            }
         }
-        .menu-item-has-children {
-            &:before{
-                display: none;
-            }
-            .sub_toggle{
-                display: inline-block;
-                position: absolute;
-                top: 0;
-                right: 0;
-                height: 25px;
-                width: 25px;
-                &.active{
-                    i:before {
-                        content: '\e906';
-                        font-size: 2px;
-                        display: block;
-                        margin-top: 10px;
-                    }
-                }
-            }
-            i:before {
-                content: '\e907';
-                font-size: 18px;
-    
-            }
+        .sub_toggle i:before {
+            content: '\e907';
+            font-size: 18px;
+
         }
-        .sub-menu{
-            opacity: 1;
-            visibility: visible;
-            position: static;
-            background: unset;
-            padding: 15px 0 0 30px;
-            display: none;
-            transition: all .5s;
-            &:hover{
-                transform: translateY(10px);
-            }
-            li{
-                padding: 0;
-            }
+        .sub_toggle.active i:before {
+            content: '\e906';
+            font-size: 2px;
         }
     }
     .ham-menu{
@@ -873,6 +791,7 @@ h2{
     .main-menu.active{
         width: 100%;
         right: -50%;
+        
         border-radius: 0 0 25px 25px ;
         .btn__header{
             display: inline-block;
@@ -880,32 +799,7 @@ h2{
     }
     .header_fixed{
         .header-wrapper, .main-menu{
-            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
-        }
-    }
-    .header-wrapper.header_fixed{
-        // &:before{
-        //     content:'';
-        //     height: 100vh;
-        //     width: 100vw;
-        //     position: absolute;
-        //     background-color: $color-primary;
-        //     top: -110vh;
-        //     left: -15px;
-        // }
-        // &.active{
-        //     &:before{
-        //         top:-81px;
-        //     }
-        // }
-        .main-menu{
-            right: -50%;
-            top: -300vh;
-        }
-        .main-menu.active{
-            top: 66px;
-            z-index: -1;
-
+            border-radius: 0;
         }
     }
     .billboard-slider__item--content{
@@ -916,7 +810,6 @@ h2{
 }
 @media screen and (max-width:991px){
     .get-car__form-wrapper{
-        min-height: 450px;
         padding: 0;
         form{
             padding: 30px 20px;
@@ -925,28 +818,14 @@ h2{
     #tab1,#tab2{
         color:#fff;
     }
-    #tab1{
-        .item-content{
-            margin-top: 55px;
-        }
-    }
     .nice-select {
         color: #6A7081;
     }
     .tabbed-content{
         max-width: 100%;
-        .item{
-            h4{
-                display: block;
-                background-color: #337ebd;
-                padding: 15px 30px
-
-            }
-            :before{
-                margin-bottom: 0;
-            }
+        .item::before{
+            margin-bottom: 0;
         }
-        
     }
 }
 @media screen and (max-width:767px){
@@ -1021,30 +900,6 @@ h2{
             &:after {
                 opacity: 0;
             }
-        }
-    }
-}
-
-.inner-page{
-    .billboard-slider__item{
-        height: 400px;
-        &:before{
-            background: rgba(0, 94, 173, 0.8);
-        }
-        img{
-            height: 100%;
-            min-height: 400px;
-        }
-        p{
-            display: block !important;
-        }
-        &:before{
-            height: 100%;
-        }
-        &--content{
-            bottom: 0;
-            top: auto;
-            transform: translate(-50%, -50%);
         }
     }
 }

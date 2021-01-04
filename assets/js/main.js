@@ -17,7 +17,6 @@ $(".brands-slider").slick({
     slidesToShow: 5,
     slidesToScroll: 2,
 });
-
 //Navbar Fixed
 var nav_offset_top = $("header").height() + 120;
 
@@ -73,23 +72,30 @@ function tabControl() {
     tabs.find('a').on('click', function(event) {
       event.preventDefault();
       var target = $(this).attr('href'),
+          datatab = $(this).attr('data-tab');
           tabs = $(this).parents('.tabs'),
           buttons = tabs.find('a'),
           item = tabs.parents('.tabbed-content').find('.item');
       buttons.removeClass('active');
       item.removeClass('active');
-      $(this).addClass('active');
-      $(target).addClass('active');
+      $(tabs).attr('data-tab', datatab);
+      $(this).parent('li').addClass('active');
+      $('.item-content').hide();
+      $(target).fadeIn('100');
+     // $(target).addClass('active');
+
     });
   } else {
     $('.item').on('click', function() {
       var container = $(this).parents('.tabbed-content'),
           currId = $(this).attr('id'),
           items = container.find('.item');
-      container.find('.tabs a').removeClass('active');
-      items.removeClass('active');
-      $(this).addClass('active');
-      container.find('.tabs a[href$="#'+ currId +'"]').addClass('active');
+    //  container.find('.tabs a').removeClass('active');
+     // items.removeClass('active');
+     // $(this).addClass('active');
+     $('.item-content').slideUp();
+     $(this).find('.item-content').slideDown();
+    //  container.find('.tabs a[href$="#'+ currId +'"]').addClass('active');
     });
   } 
 }
@@ -100,9 +106,15 @@ $(document).on('click', '.ham-input', function() {
 });
 
 //submenu mobile menu
-$('.mt-header__menu--list .menu-item-has-children > a').each(function() {
-  $(this).after("<span class='mt-sub_toggle'><i class='mt-icon icon-arrow_right'></i></span>");
+$('.main-menu .menu-item-has-children > a').each(function() {
+  $(this).after("<span class='sub_toggle'><i class='mt-icon icon-arrow_right'></i></span>");
 });
-$(document).on('click', 'span.mt-sub_toggle', function() {
+$(document).on('click', 'span.sub_toggle', function() {
   $(this).next('ul.sub-menu').slideToggle();
+  $('.sub_toggle').toggleClass('active');
+});
+
+// nice-select
+$(document).ready(function() {
+  $('select').niceSelect();
 });
