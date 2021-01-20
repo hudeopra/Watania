@@ -36,6 +36,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-vision:before {
+  content: "\e908";
+}
+.icon-mission:before {
+  content: "\e909";
+}
+
+.icon-contact:before {
+  content: "\e90a";
+}
+.icon-location:before {
+  content: "\e90b";
+}
+.icon-phone:before {
+  content: "\e90c";
+}
 .icon-minus:before {
   content: "\e906";
   font-size: 1.5px;

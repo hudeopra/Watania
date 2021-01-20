@@ -1,4 +1,4 @@
-
+jQuery(document).ready(function($) {
 $('.billboard-slider').slick({
     dots: true,
     infinite: true,
@@ -6,28 +6,189 @@ $('.billboard-slider').slick({
     fade: true,
     arrows: false,
     autoplay: true,
+    focusOnSelect: false,
     cssEase: 'linear'
   });
 $(".brands-slider").slick({
     infinite: true,
     speed: 500,
-    fade: true,
     arrows: false,
     autoplay: true,
-    slidesToShow: 5,
-    slidesToScroll: 2,
+    slidesToShow: 10,
+    slidesToScroll: 1,
+    responsive: [
+    {
+      breakpoint: 1601,
+      settings: {
+        slidesToShow: 8,
+      }
+    },
+    {
+      breakpoint: 1201,
+      settings: {
+        slidesToShow: 7,
+      }
+    },
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 5,
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 4,
+      }
+    },
+    {
+      breakpoint: 576,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+      }
+    }
+    ]
 });
+$(".other-brands-slider").slick({
+    infinite: true,
+    speed: 500,
+    arrows: false,
+    autoplay: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+      }
+    },
+    ]
+});
+
+$(".grades-slider").slick({
+  infinite: true,
+  speed: 500,
+  arrows: true,
+  autoplay: true,
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  responsive: [
+  {
+    breakpoint: 992,
+    settings: {
+      slidesToShow: 3,
+    }
+  },
+  {
+    breakpoint: 768,
+    settings: {
+      slidesToShow: 2,
+    }
+  },
+  ]
+});
+function carGallery() {
+$(".car-gallery-slider").slick({
+  infinite: true,
+  speed: 500,
+  arrows: false,
+  autoplay: true,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  responsive: [
+  {
+    breakpoint: 992,
+    settings: {
+      slidesToShow: 3,
+    }
+  },
+  {
+    breakpoint: 768,
+    settings: {
+      slidesToShow: 2,
+    }
+  },
+  ]
+});
+}
+carGallery();
+//Gallery Tab
+$('.car-gallery-tab a').on('click', function(e) {
+  e.preventDefault();
+  $('.car-gallery-slider').slick('unslick');
+  carGallery();
+  var currentTab = $(this).attr('href');
+  $('.gallery-slider-content').hide();
+  $(currentTab).fadeIn();
+});
+
+// car specification accordion
+function mobile_accordion() {
+        var winWidth = $(window).width();
+        if (winWidth < 992) {
+            $('.compare-stats__details--content-wrapper h3').click(function(e) {
+                if ($(this).hasClass('is-active')) {
+                    $('.compare-stats__details--content-wrapper h3').removeClass('is-active');
+                    $('.compare-stats__details--list-wrapper').slideUp(300);
+                    e.stopImmediatePropagation();
+                } else {
+                    $('.compare-stats__details--content-wrapper h3').removeClass('is-active');
+                    $('.compare-stats__details--list-wrapper').slideUp(300);
+                    $(this).addClass('is-active').next('.compare-stats__details--list-wrapper').slideDown(300);
+                    e.stopImmediatePropagation();
+                }
+            });
+            //footer navigation
+            $('.footer-quicklink h4').click(function(e) {
+                if ($(this).hasClass('is-active')) {
+                    $('.footer-quicklink h4').removeClass('is-active');
+                    $('.footer-quicklink ul').slideUp(300);
+                    e.stopImmediatePropagation();
+                } else {
+                    $('.footer-quicklink h4').removeClass('is-active');
+                    $('.footer-quicklink ul').slideUp(300);
+                    $(this).addClass('is-active').next('ul').slideDown(300);
+                    e.stopImmediatePropagation();
+                }
+            });
+        } else {
+            $('.compare-stats__details--content-wrapper h3, .footer-quicklink h4').unbind('click');
+        }
+    }
+    mobile_accordion();
+    $(window).resize(mobile_accordion);
 //Navbar Fixed
 var nav_offset_top = $("header").height() + 120;
 
 function navbarFixed() {
     if ($(".header-wrapper").length) {
         $(window).scroll(function () {
-            var scroll = $(window).scrollTop();
+            var scroll = $(window).scrollTop(),
+                slowscroll = scroll / 2;
+            $('.billboard').css({
+                transform: "translateY(" + slowscroll + "px)"
+            });    
             if (scroll >= nav_offset_top) {
                 $(".header-wrapper").addClass("header_fixed");
+                
             } else {
                 $(".header-wrapper").removeClass("header_fixed");
+             //   $('.billboard').css({
+              //  transform: "translateY(0)"
+          //  });
             }
         });
     }
@@ -35,9 +196,9 @@ function navbarFixed() {
 
 navbarFixed();
 $(document).on('click','.ham-menu', function(){
-  $('.header-wrapper').toggleClass('active');
+  $('.header').toggleClass('active');
   $('.ham-menu').toggleClass('active');
-  $('.main-menu').toggleClass('active');
+  $('.main-menu').slideToggle();
 });
 
 
@@ -86,16 +247,20 @@ function tabControl() {
 
     });
   } else {
-    $('.item').on('click', function() {
+    $('.item-title').on('click', function(e) {
       var container = $(this).parents('.tabbed-content'),
           currId = $(this).attr('id'),
-          items = container.find('.item');
+          items = $('.item-title');
     //  container.find('.tabs a').removeClass('active');
-     // items.removeClass('active');
-     // $(this).addClass('active');
-     $('.item-content').slideUp();
-     $(this).find('.item-content').slideDown();
-    //  container.find('.tabs a[href$="#'+ currId +'"]').addClass('active');
+    if($(this).hasClass('active')) {
+        e.preventDefault();
+    }else{
+        items.removeClass('active'); 
+        $(this).addClass('active');
+        $('.item-content').slideUp();
+        $(this).next('.item-content').slideDown();
+    }
+      
     });
   } 
 }
@@ -117,4 +282,32 @@ $(document).on('click', 'span.sub_toggle', function() {
 // nice-select
 $(document).ready(function() {
   $('select').niceSelect();
+});
+// brand filter
+$(document).on("click", ".filter__dropdown", function () {
+  $(".filter__dropdown").toggleClass("active");
+});
+// in-ex-slide-buttons
+$(document).on('click', '.interior', function() {
+  $('.slide-buttons').toggleClass('active');
+});
+$(document).on('click', '.exterior', function() {
+  $('.slide-buttons').removeClass('active');
+});
+
+});
+
+$(window).resize(function() {
+    var winWidthNew = $(window).width();
+    if (winWidthNew > 768) {
+        $('.compare-stats__details--content-wrapper h3, .footer-quicklink h4').removeClass('is-active');
+        $('.compare-stats__details--list-wrapper, .footer-quicklink ul').removeAttr('style');
+    }
+});
+// compare popup
+$(document).on("click", ".add-compare", function () {
+  $("#compare-car-form").toggleClass("open");
+}); 
+$(document).on("click", ".close, .overlay-bg", function () {
+  $("#compare-car-form").removeClass("open");
 });

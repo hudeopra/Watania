@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Watania</title>
+        <title>About Us - Watani</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="favicon" href="assets/img/favicon.svg" sizes="16x16" />
@@ -19,23 +19,69 @@
         <link rel="stylesheet" href="assets/css/nice-select.css">
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
-    <body>
-        <main class="inner-page about-page">
-            <section class="billboard">
-                <div class="slider">
-                    <div class="billboard-slider__item">
-                        <img src="assets/img/billboard-1.jpg" alt="">
-                        <div class="billboard-slider__item--content">
-                            <h1>About us</h1>
+    <body class="inner-page">
+        <header class="header">
+            <div class=" header-wrapper align-items-center">
+                <div class="row">
+                    <div class="col-12 col-xl-auto d-flex align-items-center">
+                        <div class=" logo  main-logo mr-3">
+                            <a href="">
+                                <img src="assets/img/watani-logo.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="ham-menu">
+                            <div class="ham-icon">
+                                <span class="ham-menu__ham-line "></span>
+                                <span class="ham-menu__ham-line "></span>
+                                <span class="ham-menu__ham-line "></span>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-12 col-xl"> 
+                        <ul class=" main-menu d-xl-flex align-items-center">
+                            <li><a href="index.html">HOME</a></li>
+                            <li><a class="active" href="about-us.html">ABOUT US</a></li>
+                            <li class="menu-item-has-children">
+                                <a href="brand.html">BRANDS</a>
+                                <ul class="sub-menu">
+                                    <li><a href="brand-details.html">HOMDA</a></li>
+                                    <li><a href="brand-details.html">TOYOTA</a></li>
+                                    <li><a href="brand-details.html">NISSAN</a></li>
+                                    <li><a href="brand-details.html">MITSUBISHI</a></li>
+                                    <li><a href="brand-details.html">HYUNDAI</a></li>
+                                    <li><a href="brand-details.html">CHANGAN</a></li>
+                                    <li><a href="brand-details.html">SUZUKI</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="finincing.html">FINANCING</a></li>
+                            <li><a href="store-locator.html">STORE LOCATOR</a></li>
+                            <li><a href="get-quote.html">GET A QUOTE</a></li>
+                            <li><a href="career.html">CAREER</a></li>
+                            <li><a href="customer-services.html">CUSTOMER SERVICES</a></li>
+                            <li><a class="arabic" href="#">العربية</a></li>
+                            <li class="ml-auto"><a href="offers.html" class=" btn btn__header btn__primary ml-auto">OFFERS</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>       
+            </div>
+        </header>
+        <section class="billboard">
+            <div class="slider">
+                <div class="billboard-slider__item">
+                    <img src="assets/img/billboard-1.jpg" alt="">
+                    <div class="billboard-slider__item--content">
+                        <h1>About us</h1>
+                    </div>
                 </div>
-            </section>
-            <section class="about-content section__padding--tb">
+            </div>
+        </section>
+        <main class="about-page">
+            <section class="about-content section__padding-lg--tb">
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-md-8 m-auto">
-                            <div class="page-content">
+                            <div class="page-header">
                                 <h2>Why Us</h2>
                                 <p>To meet the needs of our customers through our comprehensive and modern showrooms 
                                     featuring the latest American, European, Japanese and Asian cars under the same roof. 
@@ -48,12 +94,12 @@
                     </div>
                 </div>
             </section>
-            <section class="mission-vision section__padding--b">
+            <section class="mission-vision section__padding-lg--b">
                 <div class="container">
-                    <div class="row">
+                    <div class="row no-gutters">
                         <div class="col-12 col-md-6">
                             <div class="page-content mission">
-                                <h3>Our Mission</h3>
+                                <h2>Our Mission</h2>
                                 <p>To meet the needs of our customers through our comprehensive and modern showrooms featuring 
                                     the latest American, European, Japanese and Asian cars under the same roof. We strive to 
                                     appreciate the needs of each customer on a customized, case-by-case basis. We then offer 
@@ -64,7 +110,7 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="page-content vision">
-                                <h3>Our Vision</h3>
+                                <h2>Our Vision</h2>
                                 <p>To be a one-stop auto center featuring a wide range of car models and providing consultation 
                                     to each customer accurately and professionally. To begin with, we ensure that we understand the 
                                     needs of each of our customers. Every member of our team is committed to giving accurate information 
@@ -75,12 +121,89 @@
                     </div>
                 </div> 
             </section>
+            <section class="newsletter section__padding-md--tb section__bg--primary">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <h3>GET NEW OFFERS TO YOUR INBOX</h3>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <form action="">
+                                <div class="newsletter__form">
+                                    <input id="newsletter-email" type="email" placeholder="EMAIL">
+                                    <label for="newsletter-email">Email</label>
+                                    <input type="submit" value="SUBSCRIBE">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
+        <footer class="footer">
+            <div class="container section__padding-md--tb">
+                <div class="d-flex flex-wrap justify-content-between">
+                    <div class="footer-logo">
+                        <img src="assets/img/watani-logo.svg" alt="">
+                    </div>
+                    <div class="footer-quicklink">
+                        <h4>CONTACT</h4>
+                        <ul>
+                            <li>Phone: <a href="tel:+966 920001949">+966 920001949</a></li>
+                            <li>Email: <a href="mailto:info@wataniauto.com.sa">info@wataniauto.com.sa</a></li>
+                            <li>
+                                <ul class="social-icon d-flex justify-content-between">
+                                    <li><a href="" class="icon icon-facebook"><span>facebook</span></a></li>
+                                    <li><a href="" class="icon icon-instagram"><span>instagram</span></a></li>
+                                    <li><a href="" class="icon icon-twitter"><span>twitter</span></a></li>
+                                    <li><a href="" class="icon icon-youtube"><span>youtube</span></a></li>
+                                    <li><a href="" class="icon icon-snapchat"><span>snapchat</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-quicklink">
+                        <h4>COMPANY</h4>
+                        <ul>
+                            <li><a href="">ABOUT US</a></li>
+                            <li><a href="">FIND A VEHICLE</a></li>
+                            <li><a href="">FINANCE CALCULATOR</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-quicklink">
+                        <h4>SHOWROOM</h4>
+                        <ul>
+                            <li><a href="">KHURAI ROAD</a></li>
+                            <li><a href="">EATERN RING</a></li>
+                            <li><a href="">ONAIZAH</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-quicklink">
+                        <h4>CUSTOMER CARE</h4>
+                        <ul>
+                            <li><a href="">CONTACT</a></li>
+                            <li><a href="">COMPLAINT</a></li>
+                            <li><a href="">FEEDBACK</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class=" section__bg--gray">
+                <div class="container">
+                    <div class="copyright d-flex justify-content-between flex-wrap">
+                        <p>© 2020 Watani Auto</p>
+                        <ul class="d-flex">
+                            <li><a href="">PRIVACY POLICY</a></li>
+                            <li><a href="">TERMS & CONDITIONS</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <script type="text/javascript" src="assets/library/jquery-3.5.1.min.js"></script>
         <script type="text/javascript" src="assets/library/slick-1.8.1/slick/slick.js"></script>
         <script type="text/javascript" src="assets/js/jquery.nice-select.js"></script>
         <script type="text/javascript" src="assets/js/main.js"></script>
     </body>
 </html>
-
-
